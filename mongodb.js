@@ -71,11 +71,23 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true}, (error, client) => 
     //     console.log(users)
     // })
 
-    db.collection('tasks').findOne({ _id: new ObjectID("5ccf8fb80e9924059cf6b427") }, (error, tasks) => {
-        console.log(tasks)
-    })
+    // db.collection('tasks').findOne({ _id: new ObjectID("5ccf8fb80e9924059cf6b427") }, (error, tasks) => {
+    //     console.log(tasks)
+    // })
 
-    db.collection('tasks').find({ completed: false }).toArray((error, tasks) => {
-        console.log(tasks)
+    // db.collection('tasks').find({ completed: false }).toArray((error, tasks) => {
+    //     console.log(tasks)
+    // })
+
+    const updatePromise = db.collection('users').updateOne({
+        _id: new ObjectID("5ccf8c2aad33d73c8c82eec2")
+    }, {
+        $inc: {
+            age: 1
+        }
+    }).then((result) => {
+        console.log(result)
+    }).catch((error) => {
+        console.log(error)
     })
 })
