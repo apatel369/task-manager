@@ -24,11 +24,11 @@ app.listen(port, () => {
     console.log('Server is up on port ' + port)
 })
 
-const main = async () => {
-    const task = await Task.findById('5cd4657ac4d98a44c80501b5')
-    await task.populate('owner').execPopulate()
-    console.log(task.owner)
-}
+// const main = async () => {
+//     const task = await Task.findById('5cd4657ac4d98a44c80501b5')
+//     await task.populate('owner').execPopulate()
+//     console.log(task.owner)
+// }
 
-main()
+// main()
 
